@@ -7,7 +7,7 @@ bin-release/
 
 # Other files and folders
 .settings/
-.venu/
+.venv/
 # Executables
 *.swf
 *.air
