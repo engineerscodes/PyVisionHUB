@@ -26,3 +26,6 @@ if 0 or 0:
 
 if 1 and not 0 :
     print("and not HI")
+
+if 1!=0 :
+    print("NOt Equal")
