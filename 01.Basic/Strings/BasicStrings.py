@@ -36,14 +36,14 @@ print(arrayString[0],arrayString[-1])
 for i in arrayString :
     print(i)
 
-len=  len(arrayString)
+lens=  len(arrayString)
 print(len)
-for i in range(-1,-len-1,-1) :
+for i in range(-1,-lens-1,-1) :
     print(arrayString[i],end="")
 
 print("\nDirect Print",arrayString)
 
-print(arrayString[0:len:2])
+print("print ::::::::::::::::::::::"+arrayString[:len(arrayString):3])
 
 
 print(arrayString[0:])
