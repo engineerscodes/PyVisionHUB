@@ -27,3 +27,4 @@ venv.bak/
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 /venv/
+/venv/Lib/site-packages/sklearn/
