@@ -41,7 +41,8 @@ print(y)
 #let use dicision Tree Simple one using skLearn
 
 from sklearn.tree  import DecisionTreeClassifier
-
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 model=DecisionTreeClassifier()
 
 model.fit(x,y)
@@ -49,6 +50,39 @@ model.fit(x,y)
 predictions =model.predict([[21,1],[23,0]])
 
 print(predictions)
+print("=======================measure predictions/cal accuracy===================")
+#to measure accuracy u did to divide into 2 part test and train set
+#mostly train 70%-80% and test 30%-20%
+ #return a tuple and u can unpack into 4 (xtrain,xtest)input set and outset(ytrain ,ytest)
+ #it randomly slit data in any order
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2) #take input and output and size of test set=0.2 =20%
+#now pass only train model set to fit or learn
+model.fit(x_train,y_train)
+#and pass test to predict
+test_predictions=model.predict(x_test)
+print(test_predictions)
+#use accuracy sore compare y_test with test_perdictions
+
+score=accuracy_score(y_test,test_predictions)
+
+print(score)
+#score changes from 0.75 -1.0 because to random slit of dataset
+
+#testing with multiple testsize letstake 80%
+
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.8) #take input and output and size of test set=0.2 =20%
+#now pass only train model set to fit or learn
+model.fit(x_train,y_train)
+#and pass test to predict
+test_predictions=model.predict(x_test)
+print(test_predictions)
+#use accuracy sore compare y_test with test_perdictions
+
+score=accuracy_score(y_test,test_predictions)
+
+print(f"SCORE THE TEST SIXE 80% :{score}") # the accureacy drop to 0.26666666666666666
+#so for training set u need more data
+
 
 
 
