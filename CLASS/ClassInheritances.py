@@ -1,11 +1,10 @@
 
 class Mammals :  #super class
-
     def walk(self):
-        print("!!!!!!!!!!Can WAlk!!!!!!!!!!!!!!!")
+       print("!!!!!!!!!!Can WAlk!!!!!!!!!!!!!!!")
 
 
- class  Dog (Mammals) : #sub class of Mammals
+class  Dog (Mammals) : #sub class of Mammals
     def Bark(self):
         print("!!!!!!!!!!!!Can Bark!!!!!!!!!!!!!!")
 
