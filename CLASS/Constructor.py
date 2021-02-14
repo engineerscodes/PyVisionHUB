@@ -18,3 +18,23 @@ class Point :
 point =Point(x=100,y=20)
 print(f" x :{point.x} y:{point.y}")
 
+
+class Person :
+
+     def __init__(self,name):
+          self.name=name
+
+
+     def talk(self,pro):
+        print(f"can  talk {pro}")
+
+person =Person("NAVEEN")
+print(person.name)
+person.talk(True)
+
+person2= Person("Rhea")
+print(person2.name)
+person2.talk(False)
+
+
+
