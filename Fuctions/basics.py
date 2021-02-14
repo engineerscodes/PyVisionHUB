@@ -1,5 +1,6 @@
+from Packages_exp.Shipping import Shipping #import from package
 
-
+Shipping()
 
 def name (name) : # Parameter
     print(name)
@@ -64,3 +65,5 @@ def retMultipleVTuple (n,n2):
 
 lists=retMultipleVTuple(100,"Naveen")
 print(type(lists))
+
+
