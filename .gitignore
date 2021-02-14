@@ -9,6 +9,14 @@ bin-release/
 .settings/
 .venv/
 .venu/
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 # Executables
 *.swf
 *.air
