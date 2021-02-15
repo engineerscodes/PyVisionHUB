@@ -13,3 +13,8 @@ Summary. Microsoft Internet Explorer has a maximum uniform resource locator (URL
 Internet Explorer also has a maximum path length of 2,048 characters. 
 This limit applies to both POST request and GET request URLs
     '''
+
+class Offer (models.Model) :
+    code =models.CharField(max_length=20)
+    descriptions=models.CharField(max_length=255)
+    discount=models.FloatField()
