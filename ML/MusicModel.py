@@ -47,7 +47,7 @@ model=DecisionTreeClassifier()
 
 model.fit(x,y)
 #pass input set [[age1,gender1],[age2,gender2]] 2d input array
-predictions =model.predict([[21,1],[23,0]])
+predictions =model.predict([[21,1],[22,0]])
 
 print(predictions)
 print("=======================measure predictions/cal accuracy===================")
@@ -80,7 +80,7 @@ print(test_predictions)
 
 score=accuracy_score(y_test,test_predictions)
 
-print(f"SCORE THE TEST SIXE 80% :{score}") # the accureacy drop to 0.26666666666666666
+print(f"SCORE THE TEST SIXE 80% :{score}") # the accuracy_score drop to 0.26666666666666666
 #so for training set u need more data
 
 
