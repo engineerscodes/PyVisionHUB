@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("<h1>NAVEEN </h1>")
+
+def new(request):
+    return HttpResponse("<h1><i> NEW PRODUCTS </i></h1>")

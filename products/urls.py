@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns =[
 
-    path("",views.index)# just pass refernces django will call at the time of request
+    path("",views.index) ,# just pass refernces django will call at the time of request
+    path("new",views.new)
 ]
