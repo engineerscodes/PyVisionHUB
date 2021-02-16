@@ -84,6 +84,19 @@ print(f"SCORE THE TEST SIXE 80% :{score}") # the accuracy_score drop to 0.266666
 #so for training set u need more data
 
 
+#save the model and read the trained model later
+#from sklearn.externals import joblib
+'''Python37\lib\site-packages\sklearn\externals\joblib_init_.py:15: DeprecationWarning: 
+sklearn.externals.joblib is deprecated in 0.21 and will be removed in 0.23. Please import this functionality directly 
+from joblib, which can be installed with: pip install joblib. 
+If this warning is raised when loading pickled models, you may need to re-serialize those models with scikit-learn 0.21+.'''
+import  joblib
+
+joblib.dump(model ,'music_model.joblib')
+
+
+
+
 
 
 

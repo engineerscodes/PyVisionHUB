@@ -9,8 +9,6 @@ def index(request):
     products=Product.objects.all()
     return render(request,'index.html',{'products' :products})
 
-
-
 #<!--{%%} template tag used for dynamic logics like loop and if-->
 #<!--Dyanmically render values use {{}}-->
 
