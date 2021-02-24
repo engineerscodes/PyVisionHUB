@@ -54,3 +54,12 @@ print(arrayString,"String is not reference in python")
 
 
 print(copy[1:-1])
+
+
+Str="HELLO WOHRLD"
+
+print(Str.find('H'))
+
+print(Str.lower())
+
+print(Str.find('H',5))
