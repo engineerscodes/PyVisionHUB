@@ -63,3 +63,13 @@ print(Str.find('H'))
 print(Str.lower())
 
 print(Str.find('H',5))
+
+#Strings Are Immutable
+
+Str="HEELOOO"
+#Str[1]="X"  String are not muttable
+#CREATES A NEW REFERNCES LIKE JAVA
+Str="JI"
+print(Str)
+
+print(Str.find('I'))
