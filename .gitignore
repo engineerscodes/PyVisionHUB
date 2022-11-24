@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -120,8 +120,6 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-=======
-
 # Build and Release Folders
 bin-debug/
 bin-release/
@@ -132,7 +130,7 @@ bin-release/
 .settings/
 .venv/
 .venu/
->>>>>>> 19c0821827106c4b636b642903458cf1501d9e53
+
 # Environments
 .env
 .venv
@@ -173,7 +171,6 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
-=======
 # Executables
 *.swf
 *.air
@@ -185,4 +182,6 @@ cython_debug/
 # information for Eclipse / Flash Builder.
 /venv/
 /venv/Lib/site-packages/sklearn/
->>>>>>> 19c0821827106c4b636b642903458cf1501d9e53
+
+/cats_and_dogs
+cats_and_dogs

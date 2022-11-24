@@ -1,11 +1,14 @@
+# previously we solved using A dense Layer now we will be using CNN
+# https://learn.udacity.com/courses/ud187/lessons/
+# cbb8612c-cd13-4994-8029-1e373f5b42dc/concepts/a3dd8997-0498-44f3-a901-2fb42298b2d2
+
 import tensorflow as tf
 import tensorflow_datasets as tfds
 import math
 import matplotlib.pyplot as plt
 
-# image classification of Clothing
-# https://colab.research.google.com/github/tensorflow/examples/blob/master/
-# courses/udacity_intro_to_tensorflow_for_deep_learning/l03c01_classifying_images_of_clothing.ipynb#scrollTo=oSzE9l7PjHx0
+# https://colab.research.google.com/github/tensorflow/examples/blob/
+# master/courses/udacity_intro_to_tensorflow_for_deep_learning/l04c01_image_classification_with_cnns.ipynb#scrollTo=Gxg1XGm0eOBy
 
 data, meta_data = tfds.load('fashion_mnist', as_supervised=True, with_info=True)
 train_dataset, test_dataset = data['train'], data['test']
@@ -46,24 +49,24 @@ for i, (image, label) in enumerate(train_dataset.take(25)):
     plt.xlabel(class_names[label])
 plt.show()
 
-# BUILD MODEL
 '''
-input tf.keras.layers.Flatten — This layer transforms the images from a 2d-array of 28  ×  28 pixels,
-to a 1d-array of 784 pixels (28*28). Think of this layer as unstacking rows of pixels in the image and lining them up.
-This layer has no parameters to learn, as it only reformats the data.
-
-"hidden" tf.keras.layers.Dense— A densely connected layer of 128 neurons. 
-Each neuron (or node) takes input from all 784 nodes in the previous layer, 
-weighting that input according to hidden parameters which will be learned during training,
-and outputs a single value to the next layer.
+The basic building block of a neural network is the layer.
+A layer extracts a representation from the data fed into it. Hopefully, a series of 
+connected layers results in a representation that is meaningful for the problem at hand.
+Much of deep learning consists of chaining together simple layers. Most layers, like tf.keras.layers.Dense, 
+have internal parameters which are adjusted ("learned") during training.
 '''
-layer_0 = tf.keras.layers.Flatten(input_shape=(28, 28, 1))
-layer_1 = tf.keras.layers.Dense(units=128, activation=tf.nn.relu)
-layer_2 = tf.keras.layers.Dense(units=10, activation=tf.nn.softmax)
-# 10 units because output has 10 classes
+# kernel = fiter
+# 32 number of filters/kernel of size 3,3 
+layer_0 = tf.keras.layers.Conv2D(32, kernel_size=(3, 3), padding='same', activation=tf.nn.relu)
+layer_1 = tf.keras.layers.MaxPool2D((2, 2), strides=2)
+layer_2 = tf.keras.layers.Conv2D(64, (3, 3), padding="same", activation=tf.nn.relu)
+layer_3 = tf.keras.layers.MaxPool2D((2, 2), strides=2)
+layer_4 = tf.keras.layers.Flatten()
+layer_5 = tf.keras.layers.Dense(128, activation=tf.nn.relu)
+layer_6 = tf.keras.layers.Dense(10, activation=tf.nn.softmax)
 
-model = tf.keras.Sequential([layer_0, layer_1, layer_2])
-
+model = tf.keras.Sequential([layer_0, layer_1, layer_2, layer_3, layer_4, layer_5, layer_6])
 model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(),
               metrics=['accuracy'])
@@ -71,15 +74,15 @@ model.compile(optimizer='adam',
 BATCH_SIZE = 32
 train_dataset = train_dataset.cache().repeat().shuffle(num_train_examples).batch(BATCH_SIZE)
 test_dataset = test_dataset.cache().batch(BATCH_SIZE)
-# The epochs=5 parameter limits training to 5 full iterations of the training dataset,
-# so a total of 5 * 60000 = 300000 examples
-model.fit(train_dataset, epochs=5, steps_per_epoch=math.ceil(num_train_examples / BATCH_SIZE))
 
+history = model.fit(train_dataset, epochs=10, steps_per_epoch=math.ceil(num_train_examples / BATCH_SIZE))
 test_loss, test_accuracy = model.evaluate(test_dataset, steps=math.ceil(num_test_examples / 32))
 print('Accuracy on test dataset:', test_accuracy)
+print("Plotting ...............")
+plt.xlabel('Epoch Number')
+plt.ylabel("Loss Magnitude")
+plt.plot(history.history['loss'])
+plt.show()
 
-for test_images, test_labels in test_dataset.take(1):
-    test_images = test_images.numpy()
-    test_labels = test_labels.numpy()
-    predictions = model.predict(test_images)
-    print(predictions)
+# accuracy is 91%
+# the accuracy is low because we are overfitting model we have to decease epoch
