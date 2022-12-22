@@ -52,15 +52,6 @@ async def Company_cmp(Csv_Url: str, fn_Symbols):
     print(f"\t\t\t\t\t\t\t\t MATCHING COMPANY DETAILS  \n {new_df.to_string()}")
 
 
-'''Symbols = get_data(URL)
-print(Symbols)
-Company_cmp("Files\\Stock Screener, Technical Analysis Scanner (1).xlsx", Symbols)
-
-# Testing with second scv file
-Company_cmp("Files\\Stock Screener, Technical Analysis Scanner (2).xlsx", Symbols)
-'''
-
-
 async def main():
     Symbols = await get_data(URL)
     print(Symbols)
